@@ -198,7 +198,7 @@
       <right_joint>right_wheel_joint</right_joint>
       <wheel_separation>0.4</wheel_separation>
       <wheel_radius>${wheel_radius}</wheel_radius>
-      <max_linear_acceleration>0.5</max_linear_acceleration>
+      <max_linear_acceleration>0.7</max_linear_acceleration>
       <max_angular_acceleration>1.0</max_angular_acceleration>
       <topic>/cmd_vel</topic>
       <odom_topic>/odom</odom_topic>

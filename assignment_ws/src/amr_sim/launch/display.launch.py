@@ -13,10 +13,12 @@ def generate_launch_description():
     
     # Get package share directory
     description_pkg_share = get_package_share_directory('amr_description')
+    nav2_share = get_package_share_directory('amr_nav2')
     # Path to the world file and robot model
     world_file = os.path.join(description_pkg_share, 'worlds', 'room.sdf')
     xacro_file = os.path.join(description_pkg_share, 'urdf', 'amr.urdf.xacro')
     rviz_config = os.path.join(description_pkg_share, 'rviz', 'amr_viz.rviz')
+    ekf_params = os.path.join(nav2_share, 'config', 'ekf.yaml')
     # Launch Gazebo with the specified world
     gz_sim = ExecuteProcess(
         cmd=['gz', 'sim', '-r', '-v', '4', world_file],
@@ -107,9 +109,18 @@ def generate_launch_description():
         parameters=[{'use_sim_time': True}]
     )
 
+    robot_localization_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_node',
+        output='screen',
+        parameters=[ekf_params, {'use_sim_time': True}]
+    )
+
     return LaunchDescription([
         gz_sim,
         delayed_spawn,
         bridge_all_in_one,
         rviz_node,
+        robot_localization_node,
     ])
