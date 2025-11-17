@@ -1,0 +1,9 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="root_sequence">
+      <ComputePathToPose action_name="ComputePathToPose" />
+      <FollowPath action_name="FollowPath" />
+      <CheckPath action_name="CheckPath" />
+    </Sequence>
+  </BehaviorTree>
+</root>

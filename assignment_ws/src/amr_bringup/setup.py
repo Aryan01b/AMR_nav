@@ -1,8 +1,7 @@
 from setuptools import find_packages, setup
 from glob import glob
-import os
 
-package_name = 'amr_sim'
+package_name = 'amr_bringup'
 
 setup(
     name=package_name,

@@ -1,0 +1,38 @@
+slam_toolbox:
+  ros__parameters:
+    odom_frame: odom             # EKF odom frame
+    base_frame: base_link        # Robot base frame
+    map_frame: map               # Map frame published by SLAM
+    use_sim_time: true           # Use simulation or bag playback time
+
+    # SLAM parameters
+    mode: "mapping"              # or "localization" if using existing map
+    resolution: 0.05             # Map resolution in meters per cell
+    map_update_interval: 2.0     # Seconds between map updates
+    max_laser_scans: 60          # Number of scans in the scan queue (for smoothing)
+    scan_buffer_size: 200        # Max number of queued scans
+
+    # Sensor and odometry config
+    odom_topic: /odometry/filtered  # Topic for fused odometry (override with remap as well)
+    scan_topic: /scan               # Topic of LiDAR scan (adjust if different)
+
+    # Map saving behavior
+    save_map_timeout: 5.0          # Seconds to wait for map to save (when requested or at shutdown)
+    save_map_automatically: false  # Set true to save automatically at shutdown; otherwise use service call
+
+    # Publish and usage options
+    publish_map: true              # Publish the map
+    publish_pose: true             # Publish robot pose on /slam_toolbox/pose
+    publish_trajectory: true       # Publish trajectory path
+
+    # TF settings
+    transform_publish_period: 0.05 # Frequency of TF publications (in seconds)
+
+    # Misc tuning
+    linear_update: 0.2             # Minimum linear distance to trigger new scan insertion (meters)
+    angular_update: 0.15           # Minimum angular difference to trigger new scan insertion (radians)
+    loop_closure_search_radius: 5.0 # Radius in meters for loop closure detection
+
+    # Logging and debugging
+    enable_debug_logging: false
+    enable_verbose_logging: false
