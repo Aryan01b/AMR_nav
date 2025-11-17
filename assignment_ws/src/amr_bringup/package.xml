@@ -3,14 +3,47 @@
 <package format="3">
   <name>amr_bringup</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Launch files and configurations for bringing up the AMR (Autonomous Mobile Robot)</description>
   <maintainer email="arlikararyan@gmail.com">swarn</maintainer>
-  <license>TODO: License declaration</license>
+  <license>Apache 2.0</license>
 
+  <!-- Build and run dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  
+  <!-- Package dependencies -->
+  <exec_depend>amr_description</exec_depend>
+  <exec_depend>amr_nav2</exec_depend>
+  <exec_depend>amr_sim</exec_depend>
+  
+  <!-- Navigation dependencies -->
+  <exec_depend>nav2_common</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>nav2_bringup</exec_depend>
+  
+  <!-- Simulation dependencies -->
+  <exec_depend>gazebo_ros_pkgs</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  
+  <!-- Launch system -->
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch_testing_ros</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+
+  <!-- Test dependencies -->
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
+  <test_depend>launch</test_depend>
+  <test_depend>launch_testing</test_depend>
+  <test_depend>launch_ros</test_depend>
+  <test_depend>launch_testing_ros</test_depend>
 
   <export>
     <build_type>ament_python</build_type>
