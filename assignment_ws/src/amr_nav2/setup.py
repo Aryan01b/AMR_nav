@@ -30,6 +30,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'send_goal = amr_nav2.send_goal:main',
         ],
     },
 )
